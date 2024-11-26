@@ -1,4 +1,27 @@
+exercise 1
 (a) @@@@86,1040
 (b) @@3.02530e+01
 (c) 83.1620
-(d) 9.97e-7
+(d) 1e-06
+
+exercise 2
+(a) printf("%-8.1e", x);
+(b) printf("%10.6e", x);
+(c) printf("%-8.3f", x);
+(d) printf("%6f", x);
+
+exercise 3
+(a) equivalent
+(b) not equivalent
+(c) not equivalent
+(d) equivalent
+
+exercise 4
+i is 10 x is 0.3 j is 5
+
+exercise 5
+x is 12.3 i is 45 j is 0.6
+
+exercise 6 
+scanf("%d / %d", &num1, &denom1);
+scanf("%d / %d", &num2, &denom2);
