@@ -13,7 +13,7 @@ int main(void)
 		{
 			printf("%d\n", i * i);
 		}
-    		else
+		else
      		{
 			continue;
 		}
