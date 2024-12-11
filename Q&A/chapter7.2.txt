@@ -1,0 +1,1 @@
+why the program in chapter6 project11 1/00(float) / 1.00(flaot) has strange value??? 

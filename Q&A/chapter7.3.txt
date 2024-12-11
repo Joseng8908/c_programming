@@ -1,0 +1,25 @@
+1
+in this code
+#include <stdio.h>
+
+int main()
+{
+    
+    char ch;
+    do {
+        
+    scanf("%c", &ch);
+    printf("%c", ch);
+    } while (ch != '\n');
+
+    
+    return 0;
+}
+
+how are scanf and printf in loop operated??
+
+2
+what is macro???????????????????
+
+3
+what is buffer?? how getchar can erase the buffer?
