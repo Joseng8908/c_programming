@@ -1,0 +1,72 @@
+ex01)
+a) 63
+b) 119
+c) 2748
+
+ex02)
+legal: b, c, e//answer: b, e 
+illegal: a, d// answer: a, c, d; 
+reason
+a: floating point type can't write with octal
+c: start with 0 is present to that constant is octal. but octal only write in
+range 0~7
+d: the constant(floating point, int) can's write with underscore(_)
+
+ex03)
+b
+
+ex04)
+d
+
+ex05)
+b
+
+ex06)
+a) char
+b) short
+c) short
+d) int
+
+ex07)
+a) \10
+b) \12
+c) \15
+d) \11
+
+ex08)
+a) \x08
+b) \x0a
+c) \x0d
+d) \x09
+
+ex09)
+int
+
+ex10)
+unsigned int
+
+ex11)
+double
+
+ex12)
+Since the + operator have higher precedence than = operator, right side of =
+is calculated at first. so, rvalue will be changed float type. And = operator 
+will be calculated. It is assignment operator. So, the type will follow lvalue.
+And the type will be double type.
+
+ex13)
+a) int
+b) long
+c) float
+d) double
+e) double
+f) int
+
+ex14)
+No, the '(int) f' will be excuted unexpectly. Because int can't allow all size
+of float type's arrange. So, this can be truncated.
+
+ex15)
+typedef char Int8;
+typedef short Int16;
+typedef long Int32;
