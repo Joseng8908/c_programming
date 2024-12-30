@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	float operand, sum = 0.f;
+	float operand, sum;
 	char operator, ch;
 
 	printf("Enter an expression: ");
@@ -10,28 +10,24 @@ int main(void)
 	scanf("%f", &operand);
 	sum = operand;
 
-	for(;;)	
+	for (;;)
 	{
 		operator = getchar();
 		if(operator == '\n')
-		{
 			break;
-		}
 
-     		else
-		{
-			scanf("%f", &operand);
-			switch(operator)
-			{
-				case '+': sum = sum + operand; break;
-				case '-': sum = sum - operand; break;
-				case '*': sum = sum * operand; break;
-				case '/': sum = sum / operand; break;
-				default: ;
-			}
+		scanf("%f", &operand);
+		switch (operator) {
+			case '+': sum = sum + operand; break;
+			case '-': sum = sum - operand; break;
+			case '*': sum = sum * operand; break;
+			case '/': sum = sum / operand; break;
+			default: ;
 		}
 	}
 
 	printf("Value of expressioin: %g", sum);
+
+	return 0;
 	
 }
