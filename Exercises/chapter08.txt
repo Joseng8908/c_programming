@@ -1,0 +1,13 @@
+ex01)
+because the operator 'sizeof' is have differ from compiler.
+sometimes, the operator 'sizeof' is unsigned operator, and sometimes, it is 
+signed operator. so, when comparing operand with 'sizeof' operator and integer operand,
+it can compute strange value.
+
+ex02)
+
+ex03)
+bool weekend[7] = {1, 0, 0, 0, 0, 0, 1};
+
+ex04)
+bool weekend[7] = {[0] = true, [6] = true)};
