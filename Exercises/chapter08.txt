@@ -5,9 +5,84 @@ signed operator. so, when comparing operand with 'sizeof' operator and integer o
 it can compute strange value.
 
 ex02)
+//answer: 
 
 ex03)
 bool weekend[7] = {1, 0, 0, 0, 0, 0, 1};
 
 ex04)
 bool weekend[7] = {[0] = true, [6] = true)};
+
+ex05)
+
+#define HOW_MANY (int)(sizeof(fib_numbers) / sizeof(fib_numbers[0])) 
+
+int fib_numbers[40] = {0, 1};
+
+for (int i = 2; i < HOW_MANY; i++){
+	fib_numbers[i] = fib_numbers[i - 1] + fib_numbers[i - 2];
+}
+
+ex06)
+const int segments[10][7] = {{1, 1, 1, 1, 1, 1, 0},
+							{0, 1, 1, 0, 0, 0, 0},
+							{1, 1, 0, 1, 1, 0, 1},
+							{1, 1, 1, 1, 0, 0, 1},
+							{0, 1, 1, 0, 0, 1, 1},
+							{1, 0, 1, 1, 0, 1, 1},
+							{1, 0, 1, 1, 1, 1, 1},
+							{1, 1, 1, 0, 0, 0, 0},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 0, 1, 1}};
+
+ex07)
+const int segments[10][7] = {{1, 1, 1, 1, 1, 1},
+							{0, 1, 1},
+							{1, 1, 0, 1, 1, 0, 1},
+							{1, 1, 1, 1, 0, 0, 1},
+							{0, 1, 1, 0, 0, 1, 1},
+							{1, 0, 1, 1, 0, 1, 1},
+							{1, 0, 1, 1, 1, 1, 1},
+							{1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 0, 1, 1}};
+
+ex08)
+double temperature_readings[30][24];
+
+ex09)
+#define ROW (int)(sizeof(temperature_readings) / sizeof(temperature_readings[0])
+#define COLUMN (int)(sizeof(temperature_readings) / sizeof(temperature_readings[0])
+
+double sum = 0, average = 0; 
+for (int i = 0; i < ROW; i++){
+		i = 0;
+		for (int j = 0; j < COLUMN; i++){
+			sum += temperature_readings[i][j];	
+		}
+}
+
+average = sum / (ROW * COLUMN);
+
+ex10)
+char checker_board[8][8] = 
+							{{'r','n','b','q','k','b','n','r'},
+							{'p','p','p','p','p','p','p','p'},
+							{' ','.',' ','.',' ','.',' ','.'},
+							{'.',' ','.',' ','.',' ','.',' '},
+							{' ','.',' ','.',' ','.',' ','.'},
+							{'.',' ','.',' ','.',' ','.',' '},
+							{'P','P','P','P','P','P','P','P'},
+							{'R','N','B','Q','K','B','N','R'}};
+
+ex11)
+char checker_board[8][8];
+
+for (int i = 0; i < 8; i++){
+	for (int j = 0; j < 8; j++){
+		if ((i + j) % 2)
+			checker_board[i][j] = 'R';
+		else
+			checker_board[i][j] = 'B';
+	}
+}
