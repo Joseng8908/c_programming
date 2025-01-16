@@ -13,7 +13,7 @@ int main(void){
 		n = m % n;
      		m = temp; }
 
-	printf("Greates common divisor: 4");
+	printf("Greates common divisor: %d", m);
 
 	return 0;
 }

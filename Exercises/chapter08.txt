@@ -86,3 +86,5 @@ for (int i = 0; i < 8; i++){
 			checker_board[i][j] = 'B';
 	}
 }
+
+

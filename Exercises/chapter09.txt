@@ -1,0 +1,128 @@
+ex01)
+double triangle_area(double base, height) /* error */
+double product; /* error */
+{
+	product = base * height;
+	return product / 2;
+}
+
+fixed code
+double triangle_area(double base, double height)
+{
+	double product
+	product = base * height;
+	return product / 2;
+}
+
+ex02)
+bool check(int x, int y, int n)
+{
+	if(x < 0 || y < 0)
+		return 0;
+	else if(n - 1 < x || n - 1 < y)
+		return 0;
+	else
+		return 1;	
+}
+
+ex03)
+int gcd(int m, int n)
+{
+	int temp;
+
+	for (;n != 0;){
+		temp = n;
+		n = m % n;
+   		m = temp;
+	}
+	return m; 
+}
+
+ex04)
+int day_of_year(int month, int day, int year)
+{
+	int num_days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	int sum_days = 0;
+
+	sum_days += day;
+
+	for (int i = 0; i < month - 1; i++) {
+		sum_days += num_days[i];
+	}
+	
+	if (year % 4 == 0 && month > 2)
+		sum_days += 1;
+
+	return sum_days;
+}
+
+ex05)
+int num_digits(int n)
+{
+	int digits;
+	while (n != 0){
+		digit++;
+		n = n / 10;
+	}
+	return digit;
+}
+
+ex06)
+int digit(int n, int k)
+{
+	int digit, num;
+	while (digit != k){
+		digit++;
+		num = n % 10;
+		n = n / 10;
+	}
+
+	if(n == 0)
+		return 0;
+	else
+		return num;
+}
+
+ex07)
+all statements are legal!!
+type conversion!
+
+ex08)
+a, b
+
+ex09)
+i = 1, j = 2
+because function can't change original value without pointer
+
+ex10)
+int largest(int a[], int n)
+{
+	int max;
+	for (int i = 0; i < n; i++){
+		if (a[i] > max)
+			max = a[i];
+	}
+	return max;
+}
+
+int average(int a[], int n)
+{
+	int sum = 0;
+	for (int i = 0; i < n; i++){
+		sum += a[i];
+	}
+	return (sum / n);
+}
+
+int count_positive(int a[], int n)
+{
+	int num;
+	for (int i = 0; i < n; i ++){
+		if (a[i] > 0)
+			num+=;
+	}
+	return num;
+}
+
+ex11)
+
