@@ -98,31 +98,99 @@ ex10)
 int largest(int a[], int n)
 {
 	int max;
-	for (int i = 0; i < n; i++){
+
+	for (int i = 0; i < n; i++)
 		if (a[i] > max)
 			max = a[i];
-	}
+
 	return max;
 }
 
 int average(int a[], int n)
 {
 	int sum = 0;
-	for (int i = 0; i < n; i++){
+
+	for (int i = 0; i < n; i++)
 		sum += a[i];
-	}
+
 	return (sum / n);
 }
 
 int count_positive(int a[], int n)
 {
 	int num;
-	for (int i = 0; i < n; i ++){
+
+	for (int i = 0; i < n; i++)
 		if (a[i] > 0)
-			num+=;
-	}
+			num += ;
+
 	return num;
 }
 
 ex11)
+float compute_GPA(char grades[], int n)
+{
+	int sum_grade = 0;
+	for (int i; i < n; i++) {
+		switch (toupper(grades[i]){
+			case 'A': sum_grade += 4; break;
+			case 'B': sum_grade += 3; break;
+			case 'C': sum_grade += 2; break;
+			case 'D': sum_grade += 1; break;
+			case 'F': sum_grade += 0; break;
+		}
+	}
 
+	return sum_grade;
+}
+
+ex12)
+double inner_product(double a[], double b[], int n)
+{
+	int sum = 0;
+	for (int i = 0; i < n; i++) {
+		sum += (a[i] * b[i]);
+	}
+	return sum;
+}
+
+ex13)
+int evaluate_position(char board[8][8])
+{
+	int sum_white = 0;
+	int sum_black = 0;
+
+	for (int i = 0; i < 8; i++)
+		for (int j = 0; j < 8; j++)
+			switch (board[i][j]) {
+				case 'Q': sum_white += 9; break;		
+				case 'R': sum_white += 5; break;		
+				case 'B': sum_white += 3; break;		
+				case 'N': sum_white += 3; break;		
+				case 'P': sum_white += 1; break;
+				case 'q': sum_black += 9; break;
+				case 'r': sum_black += 5; break;
+				case 'b': sum_black += 3; break;
+				case 'n': sum_black += 3; break;
+				case 'p': sum_black += 1; break;
+			}
+	return (int)(sum_white - sum_black);
+}
+
+ex14)
+bool has_zero(int a[], int)
+{
+	int i;
+
+	for (i = 0; i < n; i++)
+		if (a[i] == 0)
+			return true;
+
+	return false;
+}
+
+ex15)
+double median(double x,  double y,  double z)
+{	
+	return 
+}
