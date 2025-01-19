@@ -190,7 +190,49 @@ bool has_zero(int a[], int)
 }
 
 ex15)
-double median(double x,  double y,  double z)
-{	
-	return 
+double median(double x, double y, double z)
+{
+	int medium;
+	if (x <= y)
+		if (y <= z) medium = y;
+		else if (y <= z) medium = z;
+		else medium = x;
+	if (x <= y) medium = y;
+	if (x <= z) medium = x;
+	return medium;
+}
+
+ex16)
+int fact(int n)
+{
+	return n <= 1 ? 1 : n * fact(n - 1);
+}
+
+ex17)
+int fact(int n)
+{
+	int sum = 1;
+	for (int i = n; i > 0; i--)
+		sum *= i;
+	return sum;
+}
+
+ex18)
+int gcd(int m, int n)
+{
+	int temp;
+	
+	if(n == 0) 
+		return m;
+	else
+		return gcd(n, m % n);
+}
+
+ex19)
+void pb(int n)
+{
+	if (n != 0) {
+		pb(n / 2);
+		putchar('0' + n % 2);
+	}
 }

@@ -1,29 +1,21 @@
 #include <stdio.h>
 
-int digit(int n, int k);
+int gcd(int m, int n);
 
 int main(void)
 {
-	double x;
-	int i;
-
-	x = digit(83, 12);
-
+	printf("%d", gcd(12, 28));
 	return 0;
 }
 
-
-int digit(int n, int k)
+int gcd(int m, int n)
 {
-	int digit = 0, num = 0;
-	while (digit < k){
-		digit++;
-		num = n % 10;
-		n = n / 10;
-	}
-
-	if(n == 0)
-		return 0;
+	int temp;
+	
+	if(n == 0) 
+		return m;
 	else
-		return num;
+		return gcd(n, m % n);
 }
+
+
