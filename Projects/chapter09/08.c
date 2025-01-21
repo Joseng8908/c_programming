@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define DICE 7
+#define DICE 6
 
 int roll_dice(void);
 bool play_game(void);
@@ -11,16 +11,19 @@ bool play_game(void);
 int main(void)
 {
 	int win = 0, lose = 0;
-	char is_continue, ch;
-	while(true) {
+	char ch;
+	srand((unsigned) time(NULL));
+	/* game start */
+	for(;;) {
 		if (play_game()) win++;	
 		else lose++;
 		
 		printf("\nPlay again? ");
-		while((ch = getchar()) != '\n') 
-			/* remove buffer */;
-		if(is_continue != 'y' && is_continue != 'Y')
-			break;
+		scanf(" %c", &ch);	
+		if (ch == 'y' || ch == 'Y')
+			continue;
+		else
+			break;	
 	}
 	printf("\nWins: %d Losses: %d", win, lose);
 
@@ -31,9 +34,8 @@ int roll_dice(void)
 {
 	int dice1, dice2;
 
-	srand((unsigned) time(NULL));
-	dice1 = rand() % DICE;
-	dice2 = rand() % DICE;
+	dice1 = rand() % DICE + 1;
+	dice2 = rand() % DICE + 1;
 
 	return dice1 + dice2;
 }
@@ -42,6 +44,7 @@ bool play_game(void)
 {
 	int dice_sum = roll_dice();
 	int point;
+
 	printf("You rolled: %d\n", dice_sum);
 	if (dice_sum == 7 || dice_sum == 11) {
 		printf("You win!\n");
@@ -56,6 +59,7 @@ bool play_game(void)
 		printf("Your point is %d\n", point);
 		while (true){
 			dice_sum = roll_dice();
+
 			printf("You rolled: %d\n", dice_sum);
 			if (dice_sum == point){
 				printf("You win!\n");
