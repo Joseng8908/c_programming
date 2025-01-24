@@ -1,0 +1,71 @@
+ex1)
+int a;
+
+void f(int b)
+{
+	int c;
+}
+
+void g(void)
+{
+	int d;
+	{
+		int e;
+	}
+}
+
+int main(void)
+{
+	int f;
+}
+
+a) The f function
+variable: c, a, b
+parameter names: b
+b) The g function
+variable: a, d, e
+parameter names: nothing
+c) The block in which e is declared
+{
+	int c;
+}
+d) The main function
+variable: a, f
+parameter names: nothing
+
+ex2)
+int b, c;
+
+void f(void)
+{
+	int b, d;
+}
+
+void g(int a)
+{
+	int c;
+	{
+		int a, d;
+	}
+}
+
+int main(void)
+{
+	int c, d;
+}
+
+a) The f function
+variable: b, c, d
+external variable: c
+b) The g function
+variable: b, c, a, d
+external variable: b
+c) The block in which a and d are declared
+variable: a, c, d, b
+external variable: b
+d) The main function
+variable: c, d, b
+external variable: b
+
+ex3)
+infinite
