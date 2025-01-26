@@ -41,7 +41,7 @@ void read_cards(void)
 {
 	char ch, rank_ch, suit_ch;
 	int rank, suit;
-	bool bad_card;
+	bool bad_card, dup_card;
 	int cards_read = 0;
 
 	for(int i = 0; i < HAND_CARDS; i++)
@@ -50,6 +50,7 @@ void read_cards(void)
 
 	while (cards_read < NUM_CARDS) {
 		bad_card = false;
+		dup_card = false;
 
 		printf("Enter a card: ");
 
@@ -84,13 +85,24 @@ void read_cards(void)
 		while ((ch = getchar()) != '\n')
 			if (ch != ' ') bad_card = true;
 
+		/* check duplicate card */
+		for (int i = 0; i < HAND_CARDS; i++) {
+		if (hand[i][0] == rank_ch) 
+				if (hand[i][1] == suit_ch) { 
+					dup_card = true;
+					break;
+				}
+				else
+					continue;
+		else
+				continue;
+		}
+		
 		if (bad_card)
 			printf("Bad card; ignored. \n");
-		else if (card_exists[rank][suit])
+		else if (dup_card)
 			printf("Duplicate card; ignored.\n");
 		else {
-			card_exists[rank][suit] = true;
-
 			hand[cards_read][RANK] = rank;
 			hand[cards_read][SUIT] = suit;
 			cards_read++;
@@ -110,15 +122,16 @@ void analyze_hand(void)
 	int num_consec = 0;
 	int rank, suit;
 	straight = false;
-	flush = false;
+	flush = true;
 	four = false;
 	three = false;
 	pairs = 0;
 
 	/* check for flush */
-	for (suit = 0; suit < HAND_SUITS; suit++)
-		if (hand[suit][SUIT] == NUM_CARDS)
-			flush = true;
+	suit = hand[0][RANK];
+	for (rank = 0; rank < HAND_CARDS; rank++)
+		if (hand[rank][SUIT] != suit)
+			flush = false;
 
 	/* check for straight */
 	rank = 0;
