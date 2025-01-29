@@ -11,7 +11,7 @@
 /* external variables */
 int num_in_rank[NUM_RANKS];
 int num_in_suit[NUM_SUITS];
-bool straight, flush, four, three;
+bool straight, flush, four, three, royal_flush;
 int pairs;
 
 /* prototypes */
@@ -62,16 +62,16 @@ void read_cards(void)
 			case '2':		rank = 0; break;
 			case '3':		rank = 1; break;
 			case '4':		rank = 2; break;
-			case '5':		rank = 2; break;
-			case '6':		rank = 2; break;
-			case '7':		rank = 2; break;
-			case '8':		rank = 2; break;
-			case '9':		rank = 2; break;
-			case 't': case 'T':	rank = 2; break;
-			case 'j': case 'J':	rank = 2; break;
-			case 'q': case 'Q':	rank = 2; break;
-			case 'k': case 'K':	rank = 2; break;
-			case 'a': case 'A':	rank = 2; break;
+			case '5':		rank = 3; break;
+			case '6':		rank = 4; break;
+			case '7':		rank = 5; break;
+			case '8':		rank = 6; break;
+			case '9':		rank = 7; break;
+			case 't': case 'T':	rank = 8; break;
+			case 'j': case 'J':	rank = 9; break;
+			case 'q': case 'Q':	rank = 10; break;
+			case 'k': case 'K':	rank = 11; break;
+			case 'a': case 'A':	rank = 12; break;
 			default: bad_card = true;
 		}
 
@@ -115,6 +115,7 @@ void analyze_hand(void)
 	flush = false;
 	four = false;
 	three = false;
+	royal_flush = false;
 	pairs = 0;
 
 	/* check for flush */
@@ -129,8 +130,11 @@ void analyze_hand(void)
 		num_consec++;
 	if (num_consec == NUM_CARDS) {
 		straight = true;
-		return;
+		if (flush && rank == 13)
+			royal_flush = true;
+		return ;
 	}
+	
 
 	/* check for 4-of-a-kind, 3-of-a-kind, and pairs */
 	for (rank = 0; rank < NUM_RANKS; rank++) {
@@ -147,7 +151,8 @@ void analyze_hand(void)
  * */
 void print_result(void)
 {
-	if (straight && flush)	printf("Straight flush");
+	if (royal_flush)	printf("Royal flush");
+	else if (straight && flush)	printf("Straight flush");
 	else if (four)		printf("Four of a kind");
 	else if (three &&
 		pairs == 1)	printf("Full house");
