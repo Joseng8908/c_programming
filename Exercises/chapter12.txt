@@ -1,0 +1,83 @@
+exer1)
+a) 14
+b) 34
+c) 4
+d) yes
+e) false
+
+exer2)
+because conversion?
+middle = *&((int)(((int)high + (int)low)) / 2);
+// answer: because pointer cannot be added
+// middle = low + (high - low) / 2;
+
+exer3)
+a[N] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+
+exer4)
+int *top_ptr = &contents[0];
+void make_empty(void)
+{
+	 top_ptr = &contents[0];
+}
+
+bool is_empty(void)
+{
+	return top_ptr == &contents[0];
+}
+
+bool is_full(void)
+{
+	return top_ptr == &contents[STACK_SIZE - 1];
+}
+
+exer5)
+a) illegal
+b) true
+c) true
+d) true
+
+exer6)
+int sum_array(const int a[], int n)
+{
+	int *p = a;
+	int i, sum;
+	for (; p < (a + n); p++)
+		sum += *p;
+	return sum;
+}
+
+exer7)
+bool search(const int a[], int n, int key)
+{
+	int *p = a;
+	for (;p < a + n; p++) {
+		if (*p == key) return true;
+	}
+	return false;
+}
+
+exer8)
+void store_zeros(int a[], int n)
+{
+	int *p = a;
+	for (; p < a + n; p++)
+		*p = 0;
+}
+
+exer9)
+double inner_product(const double *a, const double *b, int n)
+{
+	double sum = 0;
+	double *a_p = a, *b_p = b;
+	for (int i = 0; i < n; i++) {
+		sum += (*a_p++) * (*b_p++); 
+	}
+	return sum;
+}
+
+exer10)
+int *find_middle(int a[], int n) {
+	int *p = a;
+	return	p + (int)(n / 2);
+}
