@@ -1,10 +1,31 @@
+#include <stdio.h>
 
-double inner_product(const double *a, const double *b, int n)
+
+#define N 10
+
+int main(void)
 {
-	double sum = 0;
-	double *a_p = a, *b_p = b;
-	for (int i = 0; i < n; i++) {
-		sum += (*a_p++) * (*b_p++); 
+	int ident[N][N];
+	int *p = &ident[0][0];
+
+	int track_of_zero = 0;
+	*p++ = 1;
+
+	for (; p <= &ident[N - 1][N - 1]; p++) {
+		if (track_of_zero == 10) {
+			*p = 1;
+			track_of_zero = 0;
+		}
+		else {
+			*p = 0;
+			track_of_zero++;
+		}
 	}
-	return sum;
+
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+	 		printf("%d ", ident[i][j]);
+		}
+		printf("\n");
+	}
 }

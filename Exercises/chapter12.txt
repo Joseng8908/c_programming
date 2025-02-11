@@ -81,3 +81,107 @@ int *find_middle(int a[], int n) {
 	int *p = a;
 	return	p + (int)(n / 2);
 }
+
+exer11)
+int find_largest(int a[], int n)
+{
+	int i, max;
+	int *p = a;
+	max = *p;
+	for (; p < p + n; p++)
+		if (*p > max)
+			max = *p;
+	return max;
+}
+
+exer12)
+void find_two_largest(const int *a, int n, int *largest, int *second_largest)
+{
+	int *end = a + n;
+	*largest = *a;
+	*second_largest = *a;
+	for	(; a < end; a++) { 
+		if (*a > *largest) 
+			*largest = *a;
+		else if (*a > *second_largest && *largest != *a)
+			*second_largest = *a;
+	}
+}
+
+exer13)
+#define N 10
+
+double ident[N][N];
+double *p = &ident[N][N];
+
+int track_of_zero = 0;
+*p++ = 1.0;
+
+for (; p <= indent[N - 1][N - 1]; p++)
+	if (track_of_zero = 10) {
+		*p = 1.0;
+		track_of_zero = 0;
+	}
+	else {
+		*p = 0.0;
+		track_of_zero++;
+	}
+
+exer14)
+int temperatures[7][24];
+bool search(temperatures[0], 168, 32);
+
+bool search(const int a[], int n, int key)
+{
+	int *p = a;
+	for (;p < a + n; p++) {
+		if (*p == key) return true;
+	}
+	return false;
+}
+
+exer15)
+int a[7][24], *p, i;
+for(p = &a[i][0]; p < &a[i][24]; p++) {
+	printf("%d", *p);
+}
+
+exer16)
+int temperatures[7][24];
+for (int *p = &temperatures[0][0]; p <= &temperatures[6][23]; p += 24) {
+	printf("%d", find_largest(p, 24);
+}
+
+exer17)
+int sum_two_dimensional_array(const int a[][LEN], int n)
+{
+	int *p, sum = 0;
+	p  = &a[0][0];
+	for (; p < &a[0][0] + n * LEN; p++)
+		sum += *p;
+
+	return sum;
+}
+
+exer18)
+int evaluate_position(char board[8][8])
+{
+	char *p;
+	int sum_white = 0;
+	int sum_black = 0;
+
+	for (p = &board[0][0]; p < &board[0][0] + (8 * 8); p++)
+		switch (*p) {
+			case 'Q': sum_white += 9; break;		
+			case 'R': sum_white += 5; break;		
+			case 'B': sum_white += 3; break;		
+			case 'N': sum_white += 3; break;		
+			case 'P': sum_white += 1; break;
+			case 'q': sum_black += 9; break;
+			case 'r': sum_black += 5; break;
+			case 'b': sum_black += 3; break;
+			case 'n': sum_black += 3; break;
+			case 'p': sum_black += 1; break;
+		}
+	return (int)(sum_white - sum_black);
+}
