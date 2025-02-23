@@ -5,7 +5,8 @@
 
 int main(void)
 {
-	int n = 0, start, end;
+	int n = 0;
+	char *start, *end;
 	char message[SIZE], message_compare[SIZE], ch;
 	printf("Enter a message: ");
 
@@ -15,11 +16,11 @@ int main(void)
 		else
 		continue;
 	}
+	start = message;
+	end = message + n - 1;
 
-	start = 0;
-	end = n - 1;
 	while (start < end) {
-		if (message[start] == message[end]) {
+		if (*start == *end) {
 			start++;
 			end--;
 		}
