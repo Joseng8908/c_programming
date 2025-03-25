@@ -1,0 +1,24 @@
+exer1)
+(b) printf("%c", "\n");
+// %c conversion need character type
+(c) printf("%s", '\n');
+// %s conversion need string type
+(e) printf('\n');
+// printf() need a pointer
+(h) putchar("\n");
+// putchar need a character, but "\n" is pointer(string)
+(j) puts('\n');
+// puts need a string as a argument
+
+exer2)
+(a) putchar(p); // illegal, putchar need one character
+(b) putchar(*p); // legal, output: abc
+(c) puts(p); // legal, output: abc
+(d) puts(*p); // illegal, puts need pointer, but *p is just string
+
+exer3)
+scanf("%d%s%d", &i, s, &j);
+i is 12, s is abc34, j is nothing
+//wrong, i is 12, s is abc34, j is 56. because %s read until space. 
+
+exer4)
