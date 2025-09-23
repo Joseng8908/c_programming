@@ -1,6 +1,7 @@
 #include <stdio.h>
+
 void qsort(int arr[], int a, int b);
-void partition(int arr[], int a, int b);
+int partition(int arr[], int a, int b, int p);
 int pivot(int arr[], int a, int b);
 void swap(int arr[], int a, int b);
 
@@ -25,31 +26,34 @@ void main() {
 
 void qsort(int arr[], int left, int right){
     int p = pivot(arr, left, right); //p is index
-    swap(arr, p, left);
-    partition(arr, left, right);
+    int newPivot = partition(arr, left, right, p);
 
-    if(left == right)
+    if(left >= right)
         return;
-    qsort(arr, p + 1, right);
-    qsort(arr, left, p - 1);
+    qsort(arr, newPivot + 1, right);
+    qsort(arr, left, newPivot - 1);
 }
 
-void partition(int arr[], int low, int high){
+int partition(int arr[], int low, int high, int p){
     int left = low + 1;
     int right = high;
-    int pivot = arr[0]; //arr[0] is pivot value
-    while(left < right){
-        if(arr[left] < pivot){
+    int pivotValue = arr[p]; //arr[low] is pivot value
+    swap(arr, low, p);
+    while(left <= right){
+        if(arr[left] < pivotValue){
             left++;
             continue;
         }
-        if(pivot > arr[right]){
+        if(pivotValue > arr[right]){
             right--;
             continue;
         }
         swap(arr, left, right);
+        left++;
+        right--;
     }
-    swap(arr, 0, left);
+    swap(arr, low, right);
+    return right;
 }
 
 int pivot(int arr[], int low, int high){
@@ -60,7 +64,7 @@ int pivot(int arr[], int low, int high){
     if ((a >= b && a <= c) || (a >= c && a <= b)) {
         return low;
     } else if ((b >= a && b <= c) || (b >= c && b <= a)) {
-        return (int)((a+c)/2);
+        return (int)((low+high)/2);
     } else {
         return high;
     }
