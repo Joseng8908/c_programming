@@ -1,4 +1,4 @@
-"# C Programming: A Modern Approach
+# C Programming: A Modern Approach
 
 C 프로그래밍 학습 저장소. "C Programming: A Modern Approach" 교재를 기반함.
 
